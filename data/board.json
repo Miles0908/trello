@@ -2,7 +2,7 @@
     "name":"task-board",
     "columns":[
         {
-            "id":" ac8e4788-ef51-4dc9-a7c3-e63a42838f06",
+            "id":"ac8e4788-ef51-4dc9-a7c3-e63a42838f06",
             "name":"todo",
             "tasks":[
                 {
@@ -18,7 +18,7 @@
             ]
         },
         {
-            "id":" 9b140ddb-37bf-433c-8067-a7352e4846fd",
+            "id":"9b140ddb-37bf-433c-8067-a7352e4846fd",
             "name":"in-progress",
             "tasks":[
                 {
@@ -39,7 +39,7 @@
             ]
         },
         {
-            "id":" a56305f6-a70d-465b-a22e-14763ebb9660",
+            "id":"a56305f6-a70d-465b-a22e-14763ebb9660",
             "name":"complete",
             "tasks":[
                 {

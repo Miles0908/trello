@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const boardStore = useBoardStore()
+const router = useRouter()
 
 defineProps({
     column:{
@@ -14,6 +15,9 @@ defineProps({
 const editNameState= ref(false)
 const deleteColumn = (columnIndex) => {
     boardStore.deleteColumn(columnIndex)
+}
+const goToTask = (taskID)=>{
+router.push(`/tasks/${taskID}`)
 }
 </script>
 <template>
@@ -31,7 +35,8 @@ const deleteColumn = (columnIndex) => {
             <ul>
                 <li v-for="task in column.tasks"
                 :key="task.id">
-               <UCard class="mb-4 bg-white"> <strong>{{ task.name }}</strong>
+               <UCard class="mb-4 bg-white" @click="goToTask(task.id)">
+                <strong>{{ task.name }}</strong>
                 <p>{{ task.description }}</p>
             </UCard>
                 </li>

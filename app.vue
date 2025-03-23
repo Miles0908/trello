@@ -1,7 +1,5 @@
 <template>
-   <Html class="bg-emerald-600">
-    <div>
+    <div class="bg-emerald-600 h-dvh">
       <NuxtPage />
     </div>
- </Html>
 </template>
