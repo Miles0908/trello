@@ -1,8 +1,12 @@
 import { defineStore } from "pinia";
 import { useStorage } from "@vueuse/core";
 import boardData from "../data/board.json"
+import { v4 as uuid } from "uuid";
 export const useBoardStore = defineStore('boardStore',()=> {
     const board = useStorage('board',boardData)
+    /**
+    * tasks
+    */
     // this is a computed property that return a function that takes a taskId and return the task with that id
     const getTask = computed(()=>{
         return taskId => {
@@ -12,7 +16,27 @@ export const useBoardStore = defineStore('boardStore',()=> {
             }
         }
     })
-    
+    const addTask = ({columnIndex, taskName})=>{
+        board.value.columns[columnIndex].tasks.push({
+            id:uuid(),
+            name:taskName,
+            description:''
+
+        })
+        }
+
+    const deleteTask= (taskId)=>{
+        for(const column of board.value.columns){
+            const taskIndex =column.tasks.findIndex(task=>task.id === taskId)
+            if(taskIndex !== -1){
+                column.tasks.splice(taskIndex, 1)
+                return
+            }
+        }
+    }
+    /**
+    * columns
+    */
     const addColumn = (columName)=>{
         board.value.columns.push({
             name:columName,
@@ -30,6 +54,8 @@ return {
     getTask,
     /* Actions*/
     addColumn,
+    addTask,
     deleteColumn,
+    deleteTask
 }
 })

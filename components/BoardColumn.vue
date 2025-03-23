@@ -1,8 +1,9 @@
 <script setup lang="ts">
 const boardStore = useBoardStore()
 const router = useRouter()
+const newTaskName = ref('')
 
-defineProps({
+const props = defineProps({
     column:{
         type:Object,
         required:true
@@ -18,6 +19,13 @@ const deleteColumn = (columnIndex) => {
 }
 const goToTask = (taskID)=>{
 router.push(`/tasks/${taskID}`)
+}
+const addTask =()=>{
+boardStore.addTask({
+    taskName:newTaskName.value,
+    columnIndex:props.columnIndex
+})
+newTaskName.value = ''
 }
 </script>
 <template>
@@ -41,5 +49,7 @@ router.push(`/tasks/${taskID}`)
             </UCard>
                 </li>
             </ul>
+            <UInput v-model="newTaskName"  type="text" placeholder="create new task" icon="mdi:plus-circle" @keyup.enter="addTask" />
+
         </UContainer>
 </template>
