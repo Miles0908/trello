@@ -33,27 +33,45 @@ const pickupTask = (event, { fromColumnIndex, fromTaskIndex }) => {
   event.dataTransfer.effectAllowed = "move";
   event.dataTransfer.dropEffect = "move";
   //take a key and a value that can be setted and acces later on
+  event.dataTransfer.setData("type", "task");
   event.dataTransfer.setData("from-column-index", fromColumnIndex);
   event.dataTransfer.setData("from-task-index", fromTaskIndex);
 };
-const dropTask = (event, toColumnIndex) => {
+const dropItem = (event, toColumnIndex) => {
   //Is getting the data that are passed in the pickupTask function
+  const type = event.dataTransfer.getData("type");
   const fromColumnIndex = event.dataTransfer.getData("from-column-index");
-  const fromTaskIndex = event.dataTransfer.getData("from-task-index");
 
-  boardStore.moveTask({
-    taskIndex: fromTaskIndex,
-    fromColumnIndex,
-    toColumnIndex,
-  });
+  if (type === "task") {
+    const fromTaskIndex = event.dataTransfer.getData("from-task-index");
+
+    boardStore.moveTask({
+      taskIndex: fromTaskIndex,
+      fromColumnIndex,
+      toColumnIndex,
+    });
+  } else if (type === "column") {
+    boardStore.moveColumn({
+      fromColumnIndex,
+      toColumnIndex,
+    });
+  }
+};
+const pickupColumn = (event, fromColumnIndex) => {
+  event.dataTransfer.effectAllowed = "move";
+  event.dataTransfer.dropEffect = "move";
+  event.dataTransfer.setData("type", "column");
+  event.dataTransfer.setData("from-column-index", fromColumnIndex);
 };
 </script>
 <template>
   <UContainer
     class="column"
+    draggable="true"
+    @dragstart.self="pickupColumn($event, columnIndex)"
     @dragenter.prevent
     @dragover.prevent
-    @drop.stop="dropTask($event, columnIndex)"
+    @drop.stop="dropItem($event, columnIndex)"
   >
     <div class="column-header mb-4">
       <div>
