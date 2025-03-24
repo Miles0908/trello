@@ -1,36 +1,46 @@
 <script setup>
-import { UContainer , UInput} from "#components";
+import { UContainer, UInput } from "#components";
 
-const boardStore = useBoardStore()
+const boardStore = useBoardStore();
 
-const route = useRoute()
+const route = useRoute();
 
-const router = useRouter()
+const router = useRouter();
 
-const newColumnName = ref('')
+const newColumnName = ref("");
 
-const isModalOpen = computed(() => route.name === 'index-tasks-id')
+const isModalOpen = computed(() => route.name === "index-tasks-id");
 
 const addColumn = () => {
-    boardStore.addColumn(newColumnName.value)
-    newColumnName.value = ''
-} 
-const closeModal = () =>{
-    router.push('/')
-}
+  boardStore.addColumn(newColumnName.value);
+  newColumnName.value = "";
+};
+const closeModal = () => {
+  router.push("/");
+};
 </script>
 <template>
-    <div class="board-wrapper">
+  <div class="board-wrapper">
     <main class="board">
-        <BoardColumn v-for="(column, columnIndex) in boardStore.board.columns" :key="column.id" class="column" :column="column"
+      <BoardColumn
+        v-for="(column, columnIndex) in boardStore.board.columns"
+        :key="column.id"
+        class="column"
+        :column="column"
         :columnIndex="columnIndex"
+      />
+      <UContainer class="column">
+        <UInput
+          v-model="newColumnName"
+          type="text"
+          placeholder="create new column"
+          icon="mdi:plus-circle"
+          @keyup.enter="addColumn"
         />
-        <UContainer class="column">
-          <UInput v-model="newColumnName" type="text" placeholder="create new column" icon="mdi:plus-circle" @keyup.enter="addColumn" />
-        </UContainer>
-    </main>  
+      </UContainer>
+    </main>
     <div v-show="isModalOpen" class="task-bg" @click.self="closeModal">
-      <NuxtPage :key="route.fullPath"/>
-    </div> 
+      <NuxtPage :key="route.fullPath" />
+    </div>
   </div>
 </template>

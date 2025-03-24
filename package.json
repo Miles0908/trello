@@ -23,6 +23,7 @@
     "@vueuse/core": "^13.0.0",
     "@vueuse/nuxt": "^13.0.0",
     "pinia": "^3.0.1",
+    "prettier": "3.5.3",
     "tailwindcss": "^4.0.15",
     "uuid": "^11.1.0"
   }
