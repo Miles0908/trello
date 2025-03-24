@@ -16,6 +16,7 @@ export const useBoardStore = defineStore("boardStore", () => {
       }
     };
   });
+
   const addTask = ({ columnIndex, taskName }) => {
     board.value.columns[columnIndex].tasks.push({
       id: uuid(),
@@ -34,7 +35,12 @@ export const useBoardStore = defineStore("boardStore", () => {
     }
   };
 
-  const moveTask = ({ fromTaskIndex, toTaskIndex, fromColumnIndex, toColumnIndex }) => {
+  const moveTask = ({
+    fromTaskIndex,
+    toTaskIndex,
+    fromColumnIndex,
+    toColumnIndex,
+  }) => {
     const task = board.value.columns[fromColumnIndex].tasks.splice(
       fromTaskIndex,
       1,
@@ -51,9 +57,11 @@ export const useBoardStore = defineStore("boardStore", () => {
       tasks: [],
     });
   };
+
   const deleteColumn = (columnIndex) => {
     board.value.columns.splice(columnIndex, 1);
   };
+  
   const moveColumn = ({ fromColumnIndex, toColumnIndex }) => {
     // remove the column from the board and store it in a variable(the 1 means we want to remove 1 element)
     const column = board.value.columns.splice(fromColumnIndex, 1)[0];

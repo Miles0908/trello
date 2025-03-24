@@ -2,10 +2,18 @@
 const boardStore = useBoardStore();
 const route = useRoute();
 const router = useRouter();
+const toast = useToast()
 const task = computed(() => boardStore.getTask(route.params.id));
+
 const deleteTask = () => (
-  boardStore.deleteTask(route.params.id), router.push("/")
+ toast.add({
+  title: "Task Deleted",
+  description: `${task.value.name} has been deleted`,
+  icon: "mdi:trash-can",
+  color: "error",
+ }), boardStore.deleteTask(route.params.id), router.push("/")
 );
+
 </script>
 
 <template>

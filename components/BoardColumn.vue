@@ -15,7 +15,6 @@ const props = defineProps({
   },
 });
 
-
 const deleteColumn = (columnIndex) => {
   boardStore.deleteColumn(columnIndex);
 };
@@ -43,7 +42,7 @@ const pickupTask = (event, { fromColumnIndex, fromTaskIndex }) => {
   event.dataTransfer.setData("from-task-index", fromTaskIndex);
 };
 
-const dropItem = (event, {toColumnIndex, toTaskIndex}) => {
+const dropItem = (event, { toColumnIndex, toTaskIndex }) => {
   //Is getting the data that are passed in the pickupTask function
   const type = event.dataTransfer.getData("type");
   const fromColumnIndex = event.dataTransfer.getData("from-column-index");
@@ -52,10 +51,10 @@ const dropItem = (event, {toColumnIndex, toTaskIndex}) => {
     const fromTaskIndex = event.dataTransfer.getData("from-task-index");
 
     boardStore.moveTask({
-        fromTaskIndex,
-        toTaskIndex,
-        fromColumnIndex,
-        toColumnIndex,
+      fromTaskIndex,
+      toTaskIndex,
+      fromColumnIndex,
+      toColumnIndex,
     });
   } else if (type === "column") {
     boardStore.moveColumn({
@@ -79,7 +78,7 @@ const pickupColumn = (event, fromColumnIndex) => {
     @dragstart.self="pickupColumn($event, columnIndex)"
     @dragenter.prevent
     @dragover.prevent
-    @drop.stop="dropItem($event, {toColumnIndex:columnIndex})"
+    @drop.stop="dropItem($event, { toColumnIndex: columnIndex })"
   >
     <div class="column-header mb-4">
       <div>
@@ -116,10 +115,12 @@ const pickupColumn = (event, fromColumnIndex) => {
               fromTaskIndex: taskIndex,
             })
           "
-          @drop.stop="dropItem($event, {
-            toColumnIndex:columnIndex,
-            toTaskIndex:taskIndex
-          })"
+          @drop.stop="
+            dropItem($event, {
+              toColumnIndex: columnIndex,
+              toTaskIndex: taskIndex,
+            })
+          "
         >
           <strong>{{ task.name }}</strong>
           <p>{{ task.description }}</p>
