@@ -2,6 +2,7 @@
 const boardStore = useBoardStore();
 const router = useRouter();
 const newTaskName = ref("");
+const editNameState = ref(false);
 
 const props = defineProps({
   column: {
@@ -13,13 +14,16 @@ const props = defineProps({
     required: true,
   },
 });
-const editNameState = ref(false);
+
+
 const deleteColumn = (columnIndex) => {
   boardStore.deleteColumn(columnIndex);
 };
+
 const goToTask = (taskID) => {
   router.push(`/tasks/${taskID}`);
 };
+
 const addTask = () => {
   boardStore.addTask({
     taskName: newTaskName.value,
@@ -27,6 +31,7 @@ const addTask = () => {
   });
   newTaskName.value = "";
 };
+
 const pickupTask = (event, { fromColumnIndex, fromTaskIndex }) => {
   // console.log("pickup event",event)
   // The effect that we are allowing is to move
@@ -37,7 +42,8 @@ const pickupTask = (event, { fromColumnIndex, fromTaskIndex }) => {
   event.dataTransfer.setData("from-column-index", fromColumnIndex);
   event.dataTransfer.setData("from-task-index", fromTaskIndex);
 };
-const dropItem = (event, toColumnIndex) => {
+
+const dropItem = (event, {toColumnIndex, toTaskIndex}) => {
   //Is getting the data that are passed in the pickupTask function
   const type = event.dataTransfer.getData("type");
   const fromColumnIndex = event.dataTransfer.getData("from-column-index");
@@ -46,9 +52,10 @@ const dropItem = (event, toColumnIndex) => {
     const fromTaskIndex = event.dataTransfer.getData("from-task-index");
 
     boardStore.moveTask({
-      taskIndex: fromTaskIndex,
-      fromColumnIndex,
-      toColumnIndex,
+        fromTaskIndex,
+        toTaskIndex,
+        fromColumnIndex,
+        toColumnIndex,
     });
   } else if (type === "column") {
     boardStore.moveColumn({
@@ -57,6 +64,7 @@ const dropItem = (event, toColumnIndex) => {
     });
   }
 };
+
 const pickupColumn = (event, fromColumnIndex) => {
   event.dataTransfer.effectAllowed = "move";
   event.dataTransfer.dropEffect = "move";
@@ -71,7 +79,7 @@ const pickupColumn = (event, fromColumnIndex) => {
     @dragstart.self="pickupColumn($event, columnIndex)"
     @dragenter.prevent
     @dragover.prevent
-    @drop.stop="dropItem($event, columnIndex)"
+    @drop.stop="dropItem($event, {toColumnIndex:columnIndex})"
   >
     <div class="column-header mb-4">
       <div>
@@ -108,6 +116,10 @@ const pickupColumn = (event, fromColumnIndex) => {
               fromTaskIndex: taskIndex,
             })
           "
+          @drop.stop="dropItem($event, {
+            toColumnIndex:columnIndex,
+            toTaskIndex:taskIndex
+          })"
         >
           <strong>{{ task.name }}</strong>
           <p>{{ task.description }}</p>
