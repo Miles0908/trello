@@ -61,7 +61,7 @@ export const useBoardStore = defineStore("boardStore", () => {
   const deleteColumn = (columnIndex) => {
     board.value.columns.splice(columnIndex, 1);
   };
-  
+
   const moveColumn = ({ fromColumnIndex, toColumnIndex }) => {
     // remove the column from the board and store it in a variable(the 1 means we want to remove 1 element)
     const column = board.value.columns.splice(fromColumnIndex, 1)[0];
