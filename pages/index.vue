@@ -21,7 +21,7 @@ const closeModal = () => {
 </script>
 <template>
   <div class="board-wrapper">
-    <main class="board">
+    <main class="board overflow-auto">
       <BoardColumn
         v-for="(column, columnIndex) in boardStore.board.columns"
         :key="column.id"
