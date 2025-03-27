@@ -1,0 +1,118 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+/* Do not edit directly, this file was auto-generated. */ 
+
+:root {
+  /* -- Theme neutral  -- */
+  --color-text-neutral: #1b1c1d;
+  --color-text-inverted: #ffffff;
+  --color-text-title: #000000;
+  --color-text-placeholder: #646570;
+  --color-text-error: #cc0707;
+  --color-text-status-low: #096343;
+  --color-text-status-medium: #653408;
+  --color-text-status-high: #622808;
+  --color-text-status-highest: #5f0f0b;
+  --color-border-accent: #3179ba;
+  --color-border-neutral: #646570;
+  --color-border-error: #cc0707;
+  --color-background-status-low: #46f7b7;
+  --color-background-status-medium: #f5eb88;
+  --color-background-status-high: #ffa775;
+  --color-background-status-highest: #f27f77;
+  --color-background-accent: #3179ba;
+  --color-background-extra-light: rgba(221, 223, 231, 0.6400);
+  --color-background-light: #dddfe7;
+  --color-background-neutral: #ffffff;
+  --color-date-background-neutral: #f7f7f7;
+  --color-date-background-error: #ffe7e7;
+  --color-date-text-neutral: #646570;
+  --color-date-text-error: #cc0707;
+  --color-date-icon-neutral: #b1b3c5;
+  --color-date-icon-error: #cc0707;
+  /* -- Breakpoint default -- */
+  --viewport-columns: 6;
+  --viewport-width: 640px;
+}
+
+/* -- Theme color -- */
+.theme-color {
+
+}
+
+/* -- @screen(md) -- */
+@media (min-width: theme(--breakpoint-md)) {
+  :root {
+    --viewport-columns: 12;
+  }
+}
+
+/* -- @screen(lg) -- */
+@media (min-width: theme(--breakpoint-lg)) {
+  :root {
+    --viewport-columns: 12;
+  }
+}
+
+/* -- @screen(xl) -- */
+@media (min-width: theme(--breakpoint-xl)) {
+  :root {
+    --viewport-columns: 12;
+  }
+}
+
+@theme inline {
+  /* -- Primitive -- */
+  --color-gray-50: #f7f7f7;
+  --color-gray-100: rgba(221, 223, 231, 0.6400);
+  --color-gray-200: #dddfe7;
+  --color-gray-300: #b1b3c5;
+  --color-gray-700: #646570;
+  --color-blue-500: #3179ba;
+  --color-white: #ffffff;
+  --color-red-100: #ffe7e7;
+  --color-red-300: #f27f77;
+  --color-red-400: #cc0707;
+  --color-red-800: #5f0f0b;
+  --color-black-500: #1b1c1d;
+  --color-black-800: #000000;
+  --color-green-300: #46f7b7;
+  --color-green-800: #096343;
+  --color-yellow-300: #f5eb88;
+  --color-orange-300: #ffa775;
+  --color-orange-700: #653408;
+  --color-orange-800: #622808;
+  /* -- Theme -- */
+  --text-color-neutral: var(--color-text-neutral);
+  --text-color-inverted: var(--color-text-inverted);
+  --text-color-title: var(--color-text-title);
+  --text-color-placeholder: var(--color-text-placeholder);
+  --text-color-error: var(--color-text-error);
+  --text-color-status-low: var(--color-text-status-low);
+  --text-color-status-medium: var(--color-text-status-medium);
+  --text-color-status-high: var(--color-text-status-high);
+  --text-color-status-highest: var(--color-text-status-highest);
+  --border-color-accent: var(--color-border-accent);
+  --border-color-neutral: var(--color-border-neutral);
+  --border-color-error: var(--color-border-error);
+  --color-background-status-low: var(--color-background-status-low);
+  --color-background-status-medium: var(--color-background-status-medium);
+  --color-background-status-high: var(--color-background-status-high);
+  --color-background-status-highest: var(--color-background-status-highest);
+  --color-background-accent: var(--color-background-accent);
+  --color-background-extra-light: var(--color-background-extra-light);
+  --color-background-light: var(--color-background-light);
+  --color-background-neutral: var(--color-background-neutral);
+  --color-date-background-neutral: var(--color-date-background-neutral);
+  --color-date-background-error: var(--color-date-background-error);
+  --color-date-text-neutral: var(--color-date-text-neutral);
+  --color-date-text-error: var(--color-date-text-error);
+  --color-date-icon-neutral: var(--color-date-icon-neutral);
+  --color-date-icon-error: var(--color-date-icon-error);
+  /* -- Breakpoint -- */
+  --viewport-columns: var(--viewport-columns);
+  --viewport-width: var(--viewport-width);
+}
+

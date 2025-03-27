@@ -23,6 +23,7 @@
     "vue-router": "^4.5.0"
   },
   "dependencies": {
+    "@digital-retex/twind-design-tokens": "^1.2.0",
     "@nuxt/ui": "^3.0.1",
     "@pinia/nuxt": "^0.10.1",
     "@tailwindcss/vite": "^4.0.15",
