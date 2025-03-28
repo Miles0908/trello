@@ -19,8 +19,8 @@ const deleteColumn = (columnIndex) => {
   boardStore.deleteColumn(columnIndex);
 };
 
-const goToTask = (taskID) => {
-  router.push(`/tasks/${taskID}`);
+const goToTask = (taskID: string) => {
+  router.push(`/board/tasks/${taskID}`);
 };
 
 const addTask = () => {
@@ -127,12 +127,19 @@ const pickupColumn = (event, fromColumnIndex) => {
         </UCard>
       </li>
     </ul>
-    <UInput
-      v-model="newTaskName"
-      type="text"
-      placeholder="create new task"
-      icon="mdi:plus-circle"
-      @keyup.enter="addTask"
-    />
+    <div class="flex items-center relative">
+      <UIcon
+        class="absolute ml-1"
+        name="material-symbols:add-rounded"
+        size="24"
+      />
+      <input
+        class="input-task"
+        v-model="newTaskName"
+        type="text"
+        placeholder="Add another task"
+        @keyup.enter="addTask"
+      />
+    </div>
   </UContainer>
 </template>

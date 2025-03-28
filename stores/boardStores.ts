@@ -68,6 +68,27 @@ export const useBoardStore = defineStore("boardStore", () => {
     board.value.columns.splice(toColumnIndex, 0, column);
   };
 
+  /**
+   * new board
+   */
+
+  const createNewBoard = (boardName) => {
+    board.value = {
+      name: boardName,
+      columns: [
+        {
+          id: uuid(),
+          name: "todo",
+          tasks: [],
+        },
+        {
+          id: uuid(),
+          name: "in-progress",
+          tasks: [],
+        },
+      ],
+    };
+  };
   return {
     /* State */
     board,
@@ -76,6 +97,7 @@ export const useBoardStore = defineStore("boardStore", () => {
     /* Actions*/
     addColumn,
     addTask,
+    createNewBoard,
     deleteColumn,
     deleteTask,
     moveColumn,

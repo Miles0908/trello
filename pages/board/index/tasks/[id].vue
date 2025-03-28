@@ -13,7 +13,7 @@ const deleteTask = () => (
     color: "error",
   }),
   boardStore.deleteTask(route.params.id),
-  router.push("/")
+  router.push("/board")
 );
 </script>
 

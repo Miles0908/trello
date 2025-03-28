@@ -11,23 +11,23 @@ export default defineNuxtConfig({
     "@nuxt/test-utils/module",
     "@digital-retex/twind-design-tokens",
   ],
-  twindDesignTokens:{
-    output:{
-      tailwindImport:false,
-      destination:'assets/css/tokens.css',
+  twindDesignTokens: {
+    output: {
+      tailwindImport: false,
+      destination: "assets/css/tokens.css",
       transforms: {
         tailwind: [
-          { from: 'color-text', to: 'text-color' },
-          { from: 'color-border', to: 'border-color' },
-          { from: 'font-line-height', to: 'leading' },
-          { from: 'font-size', to: 'text' },
-          { from: 'font-family', to: 'font' },
+          { from: "color-text", to: "text-color" },
+          { from: "color-border", to: "border-color" },
+          { from: "font-line-height", to: "leading" },
+          { from: "font-size", to: "text" },
+          { from: "font-family", to: "font" },
         ],
       },
     },
-    tokens:{
-      theme:{
-        isMultiTheme: false
+    tokens: {
+      theme: {
+        isMultiTheme: false,
       },
       breakpoint: {
         screens: {
@@ -37,9 +37,9 @@ export default defineNuxtConfig({
           xl: 1280,
         },
       },
-    }
+    },
   },
-  css: [ "/assets/css/main.css"],
+  css: ["/assets/css/main.css"],
   colorMode: {
     preference: "light",
   },

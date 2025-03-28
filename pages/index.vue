@@ -1,46 +1,48 @@
 <script setup>
-import { UContainer, UInput } from "#components";
-
+const route = useRouter();
 const boardStore = useBoardStore();
-
-const route = useRoute();
-
-const router = useRouter();
-
-const newColumnName = ref("");
-
-const isModalOpen = computed(() => route.name === "index-tasks-id");
-
-const addColumn = () => {
-  boardStore.addColumn(newColumnName.value);
-  newColumnName.value = "";
+const boardName = ref("");
+const error = ref(false);
+const createBoard = () => {
+  if (boardName.value === "") {
+    error.value = true;
+    return;
+  } else {
+    error.value = false;
+    boardStore.createNewBoard(boardName.value);
+    route.push("/board");
+  }
 };
-const closeModal = () => {
-  router.push("/");
-};
+
+watch(boardName, (newValue) => {
+  if (newValue !== "") error.value = false;
+});
 </script>
 <template>
-  <div class="board-wrapper">
-    <main class="board overflow-auto">
-      <BoardColumn
-        v-for="(column, columnIndex) in boardStore.board.columns"
-        :key="column.id"
-        class="column"
-        :column="column"
-        :columnIndex="columnIndex"
-      />
-      <UContainer class="column">
-        <UInput
-          v-model="newColumnName"
+  <div class="flex justify-center items-center h-full">
+    <div class="bg-background-light rounded flex gap-5 flex-col p-5">
+      <h1><strong>NEW BOARD</strong></h1>
+      <p class="text-sm">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer viverra
+        venenatis accumsan.
+      </p>
+      <div class="flex gap-3 flex-col">
+        <p>Name*</p>
+        <input
+          v-model="boardName"
+          :class="{
+            'input-create-board': true,
+            'border-error! placeholder:text-error!': error,
+          }"
           type="text"
-          placeholder="create new column"
-          icon="mdi:plus-circle"
-          @keyup.enter="addColumn"
+          placeholder="Board name"
+          @keyup.enter="createBoard"
         />
-      </UContainer>
-    </main>
-    <div v-show="isModalOpen" class="task-bg" @click.self="closeModal">
-      <NuxtPage :key="route.fullPath" />
+        <p v-if="error" class="text-error text-xs">Is required to fill the field</p>
+        <p class="text-xs">Please, give a name to your new board</p>
+      </div>
+
+      <button class="button ml-0!" @click="createBoard">Create</button>
     </div>
   </div>
 </template>

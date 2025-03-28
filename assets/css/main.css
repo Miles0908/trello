@@ -1,4 +1,4 @@
 @import "tailwindcss";
 @tailwind utilities;
-@import './tokens.css';
-@import './vello.css'
+@import "./tokens.css";
+@import "./vello.css";

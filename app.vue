@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-emerald-600 h-dvh">
+  <div class="bg-background-accent h-dvh">
     <UApp>
       <NuxtPage />
     </UApp>
