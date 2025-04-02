@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     "@vueuse/nuxt",
     "@nuxt/test-utils/module",
     "@digital-retex/twind-design-tokens",
+    '@nuxt/test-utils/module',
   ],
   twindDesignTokens: {
     output: {

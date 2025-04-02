@@ -13,7 +13,7 @@ const closeModal = () => {
 </script>
 <template>
   <div class="board-wrapper">
-    <div class="text-xl text-inverted mb-2 flex items-center">
+    <div class="text-xl text-inverted my-6 flex items-center">
       <UIcon
         class="hover:text-neutral duration-200"
         @click="() => router.push('/')"
@@ -21,7 +21,7 @@ const closeModal = () => {
         size="20"
       />
       <strong class="hover:text-neutral duration-200">
-        Project name: {{ boardStore.board.name }}</strong
+      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">  {{ boardStore.board.name }} </a></strong
       >
     </div>
     <main class="board overflow-auto w-full flex gap-2.5">

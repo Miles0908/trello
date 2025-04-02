@@ -78,12 +78,12 @@ export const useBoardStore = defineStore("boardStore", () => {
       columns: [
         {
           id: uuid(),
-          name: "todo",
+          name: "TODO",
           tasks: [],
         },
         {
           id: uuid(),
-          name: "in-progress",
+          name: "IN PROGRESS",
           tasks: [],
         },
       ],

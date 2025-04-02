@@ -2,7 +2,6 @@
 const boardStore = useBoardStore();
 const router = useRouter();
 const newTaskName = ref("");
-const editNameState = ref(false);
 
 const props = defineProps({
   column: {
@@ -70,6 +69,10 @@ const pickupColumn = (event, fromColumnIndex) => {
   event.dataTransfer.setData("type", "column");
   event.dataTransfer.setData("from-column-index", fromColumnIndex);
 };
+
+const deleteTask = (taskId: string) => {
+  boardStore.deleteTask(taskId);
+};
 </script>
 <template>
   <UContainer
@@ -82,32 +85,20 @@ const pickupColumn = (event, fromColumnIndex) => {
   >
     <div class="column-header mb-4">
       <div>
-        <UInput
-          v-if="editNameState"
-          v-model="column.name"
-          type="text"
-          placeholder="edit column name"
-        />
-        <h2 v-else class="mb-4">{{ column.name }}</h2>
+        <h2 class="mb-4">{{ column.name }}</h2>
       </div>
       <div>
         <UButton
-          class="bg-emerald-500 mr-2"
-          icon="mdi:pencil-box"
-          @click="editNameState = !editNameState"
-        />
-        <UButton
-          class="bg-red-500"
+          class="bg-transparent text-neutral hover:bg-background-status-highest"
           icon="mdi:trash-can"
           @click="deleteColumn(columnIndex)"
         />
       </div>
     </div>
     <ul>
-      <li v-for="(task, taskIndex) in column.tasks" :key="task.id">
+      <li v-for="(task, taskIndex) in column.tasks" :key="task.id" class="group relative">
         <UCard
           class="mb-4 bg-white"
-          @click="goToTask(task.id)"
           draggable="true"
           @dragstart="
             pickupTask($event, {
@@ -122,8 +113,18 @@ const pickupColumn = (event, fromColumnIndex) => {
             })
           "
         >
-          <strong>{{ task.name }}</strong>
-          <p>{{ task.description }}</p>
+          <div class="inline-block items-center justify-between">
+            <div class="flex gap-2 flex-col">
+              <strong>{{ task.name }}</strong>
+              <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, odio?</p>
+            </div>
+            <UButton
+              class="absolute top-0 right-0 opacity-0 group-hover:opacity-100 transition-opacity p-0 text-error hover:bg-background-neutral"
+              icon="system-uicons:cross-circle"
+              variant="ghost"
+              @click.stop="deleteTask(task.id)"
+            />
+          </div>
         </UCard>
       </li>
     </ul>

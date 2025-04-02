@@ -38,7 +38,9 @@ watch(boardName, (newValue) => {
           placeholder="Board name"
           @keyup.enter="createBoard"
         />
-        <p v-if="error" class="text-error text-xs">Is required to fill the field</p>
+        <p v-if="error" class="text-error text-xs duration-200">
+          Is required to fill the field
+        </p>
         <p class="text-xs">Please, give a name to your new board</p>
       </div>
 

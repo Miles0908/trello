@@ -3,7 +3,7 @@
   "columns": [
     {
       "id": "ac8e4788-ef51-4dc9-a7c3-e63a42838f06",
-      "name": "todo",
+      "name": "TODO",
       "tasks": [
         {
           "id": "905ee1ff-7ef8-478f-a66c-3e733703ecba",
@@ -14,7 +14,7 @@
     },
     {
       "id": "9b140ddb-37bf-433c-8067-a7352e4846fd",
-      "name": "in-progress",
+      "name": "IN PROGRESS",
       "tasks": [
         {
           "id": "d8225a24-0329-4fd1-8298-f5a3177a6f7c",

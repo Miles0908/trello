@@ -1,12 +1,13 @@
 @import "tailwindcss";
 @tailwind utilities;
+@import "@nuxt/ui";
 
 .board {
   @apply flex flex-row items-start;
 }
 
 .input-task {
-  @apply pl-8 p-2 text-neutral placeholder:text-neutral border-0 focus:outline-none rounded w-full focus:bg-background-neutral;
+  @apply pl-8 p-2 text-neutral placeholder:text-neutral border-0 focus:outline-none rounded w-full focus:bg-background-neutral hover:bg-background-neutral duration-200;
 }
 
 .input-create-board {
@@ -14,7 +15,7 @@
 }
 
 .input-column {
-  @apply pl-8 text-neutral bg-background-extra-light placeholder:text-neutral border-0 focus:outline-none rounded w-full focus:bg-background-light;
+  @apply pl-8 text-neutral bg-background-extra-light placeholder:text-neutral border-0 focus:outline-none rounded w-full focus:bg-background-light hover:bg-background-light;
 }
 .input-column-error {
   @apply pl-8 text-neutral bg-background-extra-light placeholder:text-neutral border border-error focus:outline-none rounded w-full focus:bg-background-light;

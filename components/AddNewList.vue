@@ -16,13 +16,13 @@ const addColumn = () => {
     error.value = true;
     return;
   }
-  boardStore.addColumn(newColumnName.value);
+  boardStore.addColumn(newColumnName.value.toUpperCase());
   newColumnName.value = "";
   error.value = false;
 };
 </script>
 <template>
-  <UContainer class="flex-1 rounded bg-background-light min-w-fit">
+  <UContainer class="flex-1 rounded bg-background-light min-w-fit m-0! p-0!">
     <div class="flex items-center relative m-6">
       <UIcon
         v-if="!isEditing"
@@ -53,7 +53,7 @@ const addColumn = () => {
       Add
     </button>
     <div v-if="error">
-      <p class="text-error bg-background-light rounded opacity-70">
+      <p class="ml-6 mb-2 text-error bg-background-light rounded opacity-70">
         Please enter at least one character
       </p>
     </div>
