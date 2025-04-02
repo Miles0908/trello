@@ -43,7 +43,7 @@ export const useBoardStore = defineStore("boardStore", () => {
   }) => {
     const task = board.value.columns[fromColumnIndex].tasks.splice(
       fromTaskIndex,
-      1,
+      1
     )[0];
     board.value.columns[toColumnIndex].tasks.splice(toTaskIndex, 0, task);
   };
@@ -78,7 +78,7 @@ export const useBoardStore = defineStore("boardStore", () => {
       columns: [
         {
           id: uuid(),
-          name: "TODO",
+          name: "TO DO",
           tasks: [],
         },
         {

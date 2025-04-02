@@ -10,7 +10,7 @@ export default defineNuxtConfig({
     "@vueuse/nuxt",
     "@nuxt/test-utils/module",
     "@digital-retex/twind-design-tokens",
-    '@nuxt/test-utils/module',
+    "@nuxt/test-utils/module",
   ],
   twindDesignTokens: {
     output: {
@@ -41,9 +41,6 @@ export default defineNuxtConfig({
     },
   },
   css: ["/assets/css/main.css"],
-  colorMode: {
-    preference: "light",
-  },
 
   compatibilityDate: "2025-03-21",
   vite: {
