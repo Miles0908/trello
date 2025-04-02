@@ -18,10 +18,12 @@ const closeModal = () => {
         class="hover:text-neutral duration-200"
         @click="() => router.push('/')"
         name="material-symbols:arrow-back-ios-rounded"
-        size="20"
+        size="28"
       />
-      <strong class="hover:text-neutral duration-200">
-      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">  {{ boardStore.board.name }} </a></strong
+      <strong class="hover:text-neutral duration-200 text-3xl">
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+          {{ boardStore.board.name }}
+        </a></strong
       >
     </div>
     <main class="board overflow-auto w-full flex gap-2.5">

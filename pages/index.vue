@@ -20,14 +20,14 @@ watch(boardName, (newValue) => {
 </script>
 <template>
   <div class="flex justify-center items-center h-full">
-    <div class="bg-background-light rounded flex gap-5 flex-col p-5">
-      <h1><strong>NEW BOARD</strong></h1>
-      <p class="text-sm">
+    <div class="bg-background-neutral rounded flex gap-5 flex-col p-6">
+      <h1 class="text-2xl"><strong>New Board</strong></h1>
+      <p class="text-md">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer viverra
         venenatis accumsan.
       </p>
-      <div class="flex gap-3 flex-col">
-        <p>Name*</p>
+      <div class="flex gap-2 flex-col">
+        <p><strong>Name*</strong></p>
         <input
           v-model="boardName"
           :class="{
@@ -41,10 +41,12 @@ watch(boardName, (newValue) => {
         <p v-if="error" class="text-error text-xs duration-200">
           Is required to fill the field
         </p>
-        <p class="text-xs">Please, give a name to your new board</p>
+        <p class="text-xs font-semibold">
+          Please, give a name to your new board
+        </p>
       </div>
 
-      <button class="button ml-0!" @click="createBoard">Create</button>
+      <button class="button mt-8 ml-0!" @click="createBoard">Create</button>
     </div>
   </div>
 </template>

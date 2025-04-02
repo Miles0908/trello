@@ -85,7 +85,7 @@ const deleteTask = (taskId: string) => {
   >
     <div class="column-header mb-4">
       <div>
-        <h2 class="mb-4">{{ column.name }}</h2>
+        <h2 class="my-2">{{ column.name }}</h2>
       </div>
       <div>
         <UButton
@@ -96,9 +96,13 @@ const deleteTask = (taskId: string) => {
       </div>
     </div>
     <ul>
-      <li v-for="(task, taskIndex) in column.tasks" :key="task.id" class="group relative">
+      <li
+        v-for="(task, taskIndex) in column.tasks"
+        :key="task.id"
+        class="group relative rounded shadow-[0_2px_2px_0_rgba(0,0,0,0.1)]"
+      >
         <UCard
-          class="mb-4 bg-white"
+          class="mb-4 bg-white relative"
           draggable="true"
           @dragstart="
             pickupTask($event, {
@@ -114,16 +118,21 @@ const deleteTask = (taskId: string) => {
           "
         >
           <div class="inline-block items-center justify-between">
-            <div class="flex gap-2 flex-col">
-              <strong>{{ task.name }}</strong>
-              <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, odio?</p>
+            <TagPriority />
+            <div class="flex gap-3 flex-col mt-4 mb-4">
+              <strong class="text-xl">{{ task.name }}</strong>
+              <p class="text-sm">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Obcaecati, odio?
+              </p>
             </div>
             <UButton
-              class="absolute top-0 right-0 opacity-0 group-hover:opacity-100 transition-opacity p-0 text-error hover:bg-background-neutral"
-              icon="system-uicons:cross-circle"
+              class="absolute shadow -top-2 -right-2 opacity-0 group-hover:opacity-100 transition-opacity p-0 text-placeholder hover:bg-background-neutral border rounded-2xl bg-background-neutral border-neutral"
+              icon="basil:cross-solid"
               variant="ghost"
               @click.stop="deleteTask(task.id)"
             />
+            <DatePicker />
           </div>
         </UCard>
       </li>

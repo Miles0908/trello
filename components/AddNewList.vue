@@ -22,8 +22,10 @@ const addColumn = () => {
 };
 </script>
 <template>
-  <UContainer class="flex-1 rounded bg-background-light min-w-fit m-0! p-0!">
-    <div class="flex items-center relative m-6">
+  <UContainer
+    class="flex-1 rounded bg-background-extra-light hover:bg-background-light min-w-fit m-0! p-0 px-0!"
+  >
+    <div class="flex items-center relative m-4">
       <UIcon
         v-if="!isEditing"
         class="absolute ml-1"
@@ -33,19 +35,19 @@ const addColumn = () => {
       <input
         :class="{
           'input-column': true,
-          'input-column-error pl-0!': error && isEditing,
-          'border! border-accent! pl-0!': isEditing && !error,
+          'input-column-error pl-1!': error && isEditing,
+          'border! border-accent! pl-1! ': isEditing && !error,
         }"
         v-model="newColumnName"
         type="text"
-        :placeholder="isEditing ? '' : 'Add new list'"
+        :placeholder="isEditing ? '' : 'Add another list'"
         @focus="((showAddButton = true), (error = false), (isEditing = true))"
         @blur="((showAddButton = false), (error = false), (isEditing = false))"
         @keyup.enter="addColumn"
       />
     </div>
     <button
-      class="button mb-4"
+      class="button mb-2.5"
       v-if="showAddButton"
       @mousedown.prevent
       @click="addColumn"
