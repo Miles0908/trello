@@ -3,7 +3,7 @@ import { useBoardStore } from "#imports";
 import boardData from "../data/board.json";
 import { setActivePinia, createPinia } from "pinia";
 
-describe.skip("Should manage store correctly", async () => {
+describe("Should manage store correctly", async () => {
   let store = useBoardStore();
 
   beforeEach(() => {
@@ -34,7 +34,7 @@ describe.skip("Should manage store correctly", async () => {
     expect(store.board.columns[0].tasks.length).toBe(initialTaskCount - 1);
 
     expect(
-      store.board.columns[0].tasks.some((task) => task.id === taskId),
+      store.board.columns[0].tasks.some((task) => task.id === taskId)
     ).toBe(false);
   });
   it("Should move the task between column correctly", () => {
@@ -51,7 +51,7 @@ describe.skip("Should manage store correctly", async () => {
     });
 
     expect(store.board.columns[fromColumnIndex].tasks[toTaskIndex]).toEqual(
-      task,
+      task
     );
   });
   it("Should delete column", () => {

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { ref } from "vue";
-
 const priorities = [
   {
     label: "low priority",
@@ -55,7 +53,3 @@ const handlePriorityClick = (priority: { label: string }) => {
     </button>
   </div>
 </template>
-
-<style scoped>
-/* Aggiungi eventuali stili personalizzati qui */
-</style>

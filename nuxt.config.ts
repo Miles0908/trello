@@ -41,6 +41,9 @@ export default defineNuxtConfig({
     },
   },
   css: ["/assets/css/main.css"],
+  colorMode: {
+    preference: "light",
+  },
 
   compatibilityDate: "2025-03-21",
   vite: {

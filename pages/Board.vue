@@ -26,7 +26,7 @@ const closeModal = () => {
         </a></strong
       >
     </div>
-    <main class="board overflow-auto w-full flex gap-2.5">
+    <main class="board overflow-auto h-full w-full flex gap-2.5">
       <BoardColumn
         v-for="(column, columnIndex) in boardStore.board.columns"
         :key="column.id"
