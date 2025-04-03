@@ -23,7 +23,7 @@ const addColumn = () => {
 </script>
 <template>
   <UContainer
-    class="rounded bg-background-extra-light hover:bg-background-light m-0! p-0 px-0! w-[500px] max-w-fit"
+    class="rounded bg-background-extra-light hover:bg-background-light m-0! p-0 px-0! w-[500px] max-w-fit duration-200"
   >
     <div class="flex items-center relative m-4 w-[470px]">
       <UIcon
@@ -46,14 +46,14 @@ const addColumn = () => {
         @keyup.enter="addColumn"
       />
     </div>
-    <button
-      class="button mb-2.5"
+    <CustomButton
       v-if="showAddButton"
-      @mousedown.prevent
+      button-class="button mb-2.5"
+      :prevent-default="true"
       @click="addColumn"
     >
       Add
-    </button>
+    </CustomButton>
     <div v-if="error">
       <p class="ml-6 mb-2 text-error bg-background-light rounded opacity-70">
         Please enter at least one character

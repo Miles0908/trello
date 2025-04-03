@@ -137,18 +137,13 @@ const deleteTask = (taskId: string) => {
         </UCard>
       </li>
     </ul>
-    <div class="flex items-center relative">
-      <UIcon
-        class="absolute ml-1"
-        name="material-symbols:add-rounded"
-        size="24"
-      />
-      <input
-        class="input-task"
+    <div>
+      <CustomInput
         v-model="newTaskName"
-        type="text"
+        input-class="input-task"
         placeholder="Add another task"
-        @keyup.enter="addTask"
+        icon="material-symbols:add-rounded"
+        @enter="addTask"
       />
     </div>
   </UContainer>

@@ -28,15 +28,12 @@ watch(boardName, (newValue) => {
       </p>
       <div class="flex gap-2 flex-col">
         <p><strong>Name*</strong></p>
-        <input
+        <CustomInput
           v-model="boardName"
-          :class="{
-            'input-create-board': true,
-            'border-error! placeholder:text-error!': error,
-          }"
-          type="text"
+          input-class="input-create-board"
+          :error="error"
           placeholder="Board name"
-          @keyup.enter="createBoard"
+          @enter="createBoard"
         />
         <p v-if="error" class="text-error text-xs duration-200">
           Is required to fill the field
@@ -46,7 +43,9 @@ watch(boardName, (newValue) => {
         </p>
       </div>
 
-      <button class="button mt-8 ml-0!" @click="createBoard">Create</button>
+      <CustomButton button-class="button mt-8 ml-0!" @click="createBoard">
+        Create
+      </CustomButton>
     </div>
   </div>
 </template>

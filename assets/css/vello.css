@@ -11,7 +11,7 @@
 }
 
 .input-create-board {
-  @apply border border-neutral p-2 text-neutral placeholder:text-neutral focus:outline-none rounded w-full focus:bg-background-neutral focus:border-accent duration-200;
+  @apply border border-neutral p-2 text-neutral placeholder:text-placeholder focus:outline-none rounded w-full focus:bg-background-neutral focus:border-accent duration-200;
 }
 
 .input-column {
