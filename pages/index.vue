@@ -1,14 +1,17 @@
 <script setup>
 const route = useRouter();
+
 const boardStore = useBoardStore();
+
 const boardName = ref("");
+
 const error = ref(false);
+
 const createBoard = () => {
   if (boardName.value === "") {
     error.value = true;
     return;
   } else {
-    error.value = false;
     boardStore.createNewBoard(boardName.value);
     route.push("/board");
   }

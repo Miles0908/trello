@@ -24,12 +24,8 @@ const priorities = [
 
 const selectedPriority = ref<string | null>(null);
 
-const handlePriorityClick = (priority: { label: string }) => {
-  if (selectedPriority.value === priority.label) {
-    selectedPriority.value = null;
-  } else {
-    selectedPriority.value = priority.label;
-  }
+const togglePriority = (label: string) => {
+  selectedPriority.value = selectedPriority.value === label ? null : label;
 };
 </script>
 
@@ -38,11 +34,11 @@ const handlePriorityClick = (priority: { label: string }) => {
     <button
       v-for="priority in priorities"
       :key="priority.label"
-      @click="handlePriorityClick(priority)"
+      @click="togglePriority(priority.label)"
       class="py-[2px] px-2 rounded-xs font-semibold text-[10px]"
       :class="[
         priority.textClass,
-        { [priority.bgClass]: priority.label },
+        priority.bgClass,
         {
           hidden:
             selectedPriority !== null && selectedPriority !== priority.label,
