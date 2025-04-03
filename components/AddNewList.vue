@@ -23,9 +23,9 @@ const addColumn = () => {
 </script>
 <template>
   <UContainer
-    class="flex-1 rounded bg-background-extra-light hover:bg-background-light min-w-fit m-0! p-0 px-0! max-w-min"
+    class="rounded bg-background-extra-light hover:bg-background-light m-0! p-0 px-0! w-[500px] max-w-fit"
   >
-    <div class="flex items-center relative m-4 w-[500px]">
+    <div class="flex items-center relative m-4 w-[470px]">
       <UIcon
         v-if="!isEditing"
         class="absolute ml-1"
