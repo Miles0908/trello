@@ -15,6 +15,8 @@
   --color-text-status-medium: #653408;
   --color-text-status-high: #622808;
   --color-text-status-highest: #5f0f0b;
+  --color-text-date-neutral: #646570;
+  --color-text-date-error: #cc0707;
   --color-border-accent: #3179ba;
   --color-border-neutral: #646570;
   --color-border-error: #cc0707;
@@ -26,10 +28,8 @@
   --color-background-extra-light: rgba(221, 223, 231, 0.6400);
   --color-background-light: #dddfe7;
   --color-background-neutral: #ffffff;
-  --color-date-background-neutral: #f7f7f7;
-  --color-date-background-error: #ffe7e7;
-  --color-date-text-neutral: #646570;
-  --color-date-text-error: #cc0707;
+  --color-background-date-neutral: #f7f7f7;
+  --color-background-date-error: #ffe7e7;
   --color-date-icon-neutral: #b1b3c5;
   --color-date-icon-error: #cc0707;
   /* -- Breakpoint default -- */
@@ -94,6 +94,8 @@
   --text-color-status-medium: var(--color-text-status-medium);
   --text-color-status-high: var(--color-text-status-high);
   --text-color-status-highest: var(--color-text-status-highest);
+  --text-color-date-neutral: var(--color-text-date-neutral);
+  --text-color-date-error: var(--color-text-date-error);
   --border-color-accent: var(--color-border-accent);
   --border-color-neutral: var(--color-border-neutral);
   --border-color-error: var(--color-border-error);
@@ -105,10 +107,8 @@
   --color-background-extra-light: var(--color-background-extra-light);
   --color-background-light: var(--color-background-light);
   --color-background-neutral: var(--color-background-neutral);
-  --color-date-background-neutral: var(--color-date-background-neutral);
-  --color-date-background-error: var(--color-date-background-error);
-  --color-date-text-neutral: var(--color-date-text-neutral);
-  --color-date-text-error: var(--color-date-text-error);
+  --color-background-date-neutral: var(--color-background-date-neutral);
+  --color-background-date-error: var(--color-background-date-error);
   --color-date-icon-neutral: var(--color-date-icon-neutral);
   --color-date-icon-error: var(--color-date-icon-error);
   /* -- Breakpoint -- */

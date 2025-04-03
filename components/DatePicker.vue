@@ -16,10 +16,8 @@ const isToday = computed(() => {
   <div
     class="px-2 rounded flex align-center w-max"
     :class="{
-      'bg-[var(--color-date-background-error)] text-[var(--color-date-text-error)]':
-        isToday,
-      'bg-[var(--color-date-background-neutral)] text-[var(--color-date-text-neutral)]':
-        !isToday,
+      'bg-background-date-error text-date-error': isToday,
+      'bg-background-date-neutral text-date-neutral': !isToday,
     }"
   >
     <div class="flex items-center font-bold">
