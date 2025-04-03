@@ -76,7 +76,7 @@ const deleteTask = (taskId: string) => {
 </script>
 <template>
   <UContainer
-    class="column"
+    class="column mx-0!"
     draggable="true"
     @dragstart.self="pickupColumn($event, columnIndex)"
     @dragenter.prevent

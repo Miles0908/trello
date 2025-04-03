@@ -26,7 +26,9 @@ const closeModal = () => {
         </a></strong
       >
     </div>
-    <main class="board overflow-auto h-full w-full flex gap-2.5">
+    <main
+      class="scrollbar board custom overflow-auto h-dvh w-full flex gap-2.5"
+    >
       <BoardColumn
         v-for="(column, columnIndex) in boardStore.board.columns"
         :key="column.id"
@@ -41,3 +43,22 @@ const closeModal = () => {
     </div>
   </div>
 </template>
+
+<style scoped>
+.scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.custom {
+  margin-left: calc(-1 * var(--spacing) * 4);
+  margin-right: calc(-1 * var(--spacing) * 4);
+  padding-left: calc(var(--spacing) * 4);
+  padding-right: calc(var(--spacing) * 4);
+  width: calc(100% + (var(--spacing) * 8));
+  box-sizing: border-box;
+}
+</style>
